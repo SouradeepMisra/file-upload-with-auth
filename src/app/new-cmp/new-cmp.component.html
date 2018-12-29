@@ -1,0 +1,70 @@
+
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    </style>
+  <div *ngIf="currentFileUpload" class="progress">
+    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+      aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+      {{progress.percentage}}%</div>
+  </div>
+  
+  <label class="btn btn-default"> <input type="file" (change)="selectFile($event)">
+  </label>
+  
+  <button class="btn btn-success" (click)="upload()">Upload</button>
+ 
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">List of Files</div>
+    <!--    <div *ngFor="let file of fileUploads">
+        <div class="panel-body">
+         <details-upload [fileUpload]='file'></details-upload>-->
+    <!--  <a href="{{file.url}}">{{url}}</a>
+        <a href="{{fileUpload.url}}">{{fileUpload.name}}</a>
+        <img src="{{fileUpload.url}}">
+        <img [src]="url">
+        <a [href]="url" ng-click ="download(fileUpload)"  >Click to Download</a>-->
+    <div *ngFor="let file of fileUploads">
+      <div class="panel-body"></div>
+      
+      <table style="width:100%">
+        
+        <tr>
+          <th>File Url</th>
+          <th>File name</th>
+          <th>File Key</th>
+          <th>Click for download</th>
+        </tr>
+        <tr>
+          <td><a href="{{file.url}}">{{file.url}}</a></td>
+          <td><a href="{{file.name}}">{{file.name}}</a></td>
+          <td><a href="{{file.key}}">{{file.key}}</a></td>
+         <!-- <td><a href="file.url"target="_blank" rel="noopener">Click to Download</a></td>-->
+         <!-- <td><a href="file.url" download>
+            <img src="file.url"  width="10" height="10">{{file.url}}
+          </a> </td>-->
+          <td><a href="downloadURL" download>
+            <img src="downloadURL"  width="10" height="10">{{file.url}}
+          </a> <button>Download!</button>
+        </td>
+        </tr>
+     </table>
+     <!-- <h1>File Url</h1>
+      <a href="{{file.url}}">{{file.url}}</a>
+      <br>
+      <h1>File Name</h1>
+      <a href="{{file.name}}">{{file.name}}</a>
+      <br>
+      <h1>File Key</h1>
+      <a href="{{file.key}}">{{file.key}}</a>-->-->
+      <!--   <img [src]="file.url"><br>   -->
+  
+  
+      <div>
+        <a href="file.url"target="_blank" rel="noopener">Click to Download</a>
+        <a mat-button routerLink="." [href]="file.url">Link</a>
+      </div>
+    </div>
+  </div>

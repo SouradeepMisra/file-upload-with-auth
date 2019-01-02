@@ -17,6 +17,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 //import { ServerComponent } from './server/server.component';
 //import { Http, ResponseContentType } from '@angular/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
